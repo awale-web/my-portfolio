@@ -1,11 +1,11 @@
-/* Browser.css */
+/* General Styles */
 html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: poppins, sans-serif; /* Set a default font */
-  background-color: #f5f5f5; /* Light background for the entire page */
+  font-family: poppins, sans-serif; /* Default font */
+  background-color: #f5f5f5; /* Light background */
 }
 
 .browser-container {
@@ -15,136 +15,172 @@ html, body, #root {
   flex-direction: column;
 }
 
+/* Tabs Navigation */
 .tabs-container {
   display: flex;
   align-items: center;
-  background-color: #f1f1f1; /* Light gray background for the tab bar */
-  padding: 0.5rem 0.5rem 0 0.5rem;
+  background-color: #f1f1f1; /* Light gray background */
+  padding: 0.5rem;
   border-bottom: 1px solid #ddd;
-  gap: 2rem;
+  gap: 1rem;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  white-space: nowrap; /* Prevent line breaks */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for Edge */
+}
+
+/* Hide scrollbar for Webkit browsers */
+.tabs-container::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
   display: flex;
-  align-items:center;
-  padding: 0.75rem 1.5rem; /* Increase padding for better spacing */
+  align-items: center;
+  padding: 0.5rem 1rem;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  color: white; /* White text for better contrast */
-  font-weight: 500; /* Medium weight for tabs */
-  font-size: 0.9rem; /* Slightly smaller font size */
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+  flex-shrink: 0; /* Prevents tabs from shrinking */
 }
 
-/* Assign unique colors to each tab */
+/* Tab Colors */
 .tab[data-tab="home"] {
-  background-color: #4285f4; /* Blue for Home */
+  background-color: #4285f4;
 }
 
 .tab[data-tab="about"] {
-  background-color: #34a853; /* Green for About */
+  background-color: #34a853;
 }
 
 .tab[data-tab="projects"] {
-  background-color: #fbbc05; /* Yellow for Projects */
+  background-color: #fbbc05;
 }
 
 .tab[data-tab="contact"] {
-  background-color: #ea4335; /* Red for Contact */
+  background-color: #ea4335;
 }
 
-/* Active tab style */
+/* Active Tab */
 .tab.active {
-  border-bottom: 3px solid white; /* White bottom border for active tab */
-  opacity: 1; /* Ensure active tab is fully visible */
+  border-bottom: 3px solid white;
+  opacity: 1;
 }
 
-/* Hover effect */
+/* Hover Effect */
 .tab:hover {
-  opacity: 0.9; /* Slightly transparent on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
+/* Main Content Area */
 .browser-content {
   flex-grow: 1;
   padding: 1.5rem;
   background-color: white;
-  overflow-y: auto; /* Enable scrolling for content if needed */
+  overflow-y: auto;
 }
 
-/* Optional: Style links in the content */
+/* Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+  .tabs-container {
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scroll */
+    padding: 0.5rem 0.2rem; /* Reduce padding */
+    gap: 0.5rem; /* Reduce gap between tabs */
+  }
+
+  .tab {
+    font-size: 0.8rem; /* Reduce font size */
+    padding: 0.4rem 0.8rem; /* Adjust padding */
+  }
+}
+
+/* Links */
 .browser-content a {
-  color: #4285f4; /* Blue color for links */
+  color: #4285f4;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .browser-content a:hover {
-  color: #34a853; /* Green color on hover */
+  color: #34a853;
+  text-decoration: underline;
 }
-/* Home Section Styles */
+
+/* Home Section */
 .home-container {
-  text-align: center; /* Center-align the content */
-}
-
-.profile-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.profile-photo {
-  width: 150px; /* Adjust the size of the photo */
-  height: 150px;
-  border-radius: 50%; /* Make the photo round */
-  border: 3px solid #4285f4; /* Add a border with the same blue as the Home tab */
-  margin-bottom: 1rem;
-  object-fit: cover; /* Ensure the photo fits well */
+  text-align: center;
+  padding: 1rem;
 }
 
 .home-container h1 {
   margin: 0;
-  color: #333; /* Dark text for the heading */
+  color: #333;
+  font-size: 2rem;
 }
 
 .home-container p {
-  color: #555; /* Slightly lighter text for paragraphs */
+  color: #555;
   line-height: 1.6;
-  max-width: 600px; /* Limit the width of the text */
-  margin: 0 auto; /* Center-align the text */
-}
-/* Style links in the Contact section */
-.browser-content a {
-  color: #4285f4; /* Blue color for links */
-  text-decoration: none;
-  transition: color 0.3s ease;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
 }
 
-.browser-content a:hover {
-  color: #34a853; /* Green color on hover */
-  text-decoration: underline; /* Add underline on hover */
+/* Responsive Font Sizes */
+@media (max-width: 600px) {
+  .home-container h1 {
+    font-size: 1.5rem;
+  }
+  .home-container p {
+    font-size: 0.9rem;
+  }
 }
-/* About Section Styles */
+
+/* About Section */
 .cv-button {
   display: inline-block;
-  margin-top: 1.5rem; /* Space above the button */
-  padding: 0.75rem 1.5rem; /* Padding inside the button */
-  background-color: lightblue; /* Blue background */
-  color: white; /* White text */
-  text-decoration: none; /* Remove underline */
-  border-radius: 4px; /* Rounded corners */
-  font-weight: 500; /* Medium weight */
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: lightblue;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cv-button:hover {
-  background-color: #357abd; /* Darker blue on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 
 .cv-button:active {
-  transform: translateY(0); /* Reset lift effect on click */
+  transform: translateY(0);
+}
+
+/* Profile Photo */
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; /* Ensures responsiveness */
+}
+
+/* Responsive Profile Photo */
+@media (max-width: 600px) {
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
 }

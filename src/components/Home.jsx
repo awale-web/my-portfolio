@@ -1,11 +1,12 @@
 import React from 'react';
 
+
 const Home = () => {
   return (
     <div className="home-container">
       <div className="profile-section">
         <img
-          src="/photo.jpg" // Path to your photo in the public folder
+          src="photo.jpg" // Use imported image
           alt="Aden Mohamed Abdi"
           className="profile-photo"
         />
