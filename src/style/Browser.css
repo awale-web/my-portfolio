@@ -1,0 +1,150 @@
+/* Browser.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: poppins, sans-serif; /* Set a default font */
+  background-color: #f5f5f5; /* Light background for the entire page */
+}
+
+.browser-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-container {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1; /* Light gray background for the tab bar */
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  border-bottom: 1px solid #ddd;
+  gap: 2rem;
+}
+
+.tab {
+  display: flex;
+  align-items:center;
+  padding: 0.75rem 1.5rem; /* Increase padding for better spacing */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: white; /* White text for better contrast */
+  font-weight: 500; /* Medium weight for tabs */
+  font-size: 0.9rem; /* Slightly smaller font size */
+}
+
+/* Assign unique colors to each tab */
+.tab[data-tab="home"] {
+  background-color: #4285f4; /* Blue for Home */
+}
+
+.tab[data-tab="about"] {
+  background-color: #34a853; /* Green for About */
+}
+
+.tab[data-tab="projects"] {
+  background-color: #fbbc05; /* Yellow for Projects */
+}
+
+.tab[data-tab="contact"] {
+  background-color: #ea4335; /* Red for Contact */
+}
+
+/* Active tab style */
+.tab.active {
+  border-bottom: 3px solid white; /* White bottom border for active tab */
+  opacity: 1; /* Ensure active tab is fully visible */
+}
+
+/* Hover effect */
+.tab:hover {
+  opacity: 0.9; /* Slightly transparent on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.browser-content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  background-color: white;
+  overflow-y: auto; /* Enable scrolling for content if needed */
+}
+
+/* Optional: Style links in the content */
+.browser-content a {
+  color: #4285f4; /* Blue color for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.browser-content a:hover {
+  color: #34a853; /* Green color on hover */
+}
+/* Home Section Styles */
+.home-container {
+  text-align: center; /* Center-align the content */
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-photo {
+  width: 150px; /* Adjust the size of the photo */
+  height: 150px;
+  border-radius: 50%; /* Make the photo round */
+  border: 3px solid #4285f4; /* Add a border with the same blue as the Home tab */
+  margin-bottom: 1rem;
+  object-fit: cover; /* Ensure the photo fits well */
+}
+
+.home-container h1 {
+  margin: 0;
+  color: #333; /* Dark text for the heading */
+}
+
+.home-container p {
+  color: #555; /* Slightly lighter text for paragraphs */
+  line-height: 1.6;
+  max-width: 600px; /* Limit the width of the text */
+  margin: 0 auto; /* Center-align the text */
+}
+/* Style links in the Contact section */
+.browser-content a {
+  color: #4285f4; /* Blue color for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.browser-content a:hover {
+  color: #34a853; /* Green color on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+/* About Section Styles */
+.cv-button {
+  display: inline-block;
+  margin-top: 1.5rem; /* Space above the button */
+  padding: 0.75rem 1.5rem; /* Padding inside the button */
+  background-color: lightblue; /* Blue background */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 4px; /* Rounded corners */
+  font-weight: 500; /* Medium weight */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cv-button:hover {
+  background-color: #357abd; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.cv-button:active {
+  transform: translateY(0); /* Reset lift effect on click */
+}
